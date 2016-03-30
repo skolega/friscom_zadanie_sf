@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>WordCount</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ wordCount.id }}</td>
+            </tr>
+            <tr>
+                <th>Word</th>
+                <td>{{ wordCount.word }}</td>
+            </tr>
+            <tr>
+                <th>Wordcount</th>
+                <td>{{ wordCount.wordCount }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('wordcount_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('wordcount_edit', { 'id': wordCount.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

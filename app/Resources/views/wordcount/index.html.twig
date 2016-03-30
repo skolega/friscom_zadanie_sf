@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Wynik liczenia słów w tekście</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Słowo</th>
+                <th>Ilość wystąpień w tekście</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for wordCount in wordCounts %}
+                <tr>
+                    <td><a href="{{ path('wordcount_show', { 'id': wordCount.id }) }}">{{ wordCount.id }}</a></td>
+                    <td>{{ wordCount.word }}</td>
+                    <td>{{ wordCount.wordCount }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
